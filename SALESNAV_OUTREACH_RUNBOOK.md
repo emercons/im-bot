@@ -37,4 +37,15 @@ contents, and referral links outside version control.
 - Monitor compact journal counts rather than page-wide DOM dumps.
 - On a stop request, terminate only the matching worker PID. Resume with the
   same export, drafts, and journal; this prevents duplicate invitations.
+- A recovered search page can show only placeholder cards after its result
+  count appears. Wait for the single results scroller, make one short scroll,
+  then return to the top before looking for card actions; do not mistake this
+  state for an empty selection.
+- Do not reload between profiles. A single restart reload is appropriate only
+  to recover a virtualized card, followed by normal list scrolling.
+- If a card is never rendered, reconcile draft IDs against the journal. A
+  targeted direct-lead retry may use the same free connection action and must
+  append to the same journal; never mark an unrendered card as sent.
+- Keep per-selection exclusions in the generated draft set rather than turning
+  them into standing exclusions without an explicit ongoing instruction.
 - Leave the browser open unless the operator explicitly asks to close it.
